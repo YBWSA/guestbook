@@ -1,3 +1,26 @@
-.card {
-    height: 100%;
+/* Layout dasar */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pastikan card tidak terlalu besar */
+.card.card-default {
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 15px; */
+}
+
+/* Footer dan keterangan info */
+footer,
+.text-muted {
+    font-size: 0.9rem;
+}
+
+/* Responsive Row Gap */
+.row {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
