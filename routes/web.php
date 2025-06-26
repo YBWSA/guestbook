@@ -4,6 +4,19 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tamuController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\PegawaiController;
+use App\Http\Controllers\Api\MahasiswaController;
+
+
+// API Pegawai Lingkungan YWBSA
+Route::get('/ybwsa/pegawai', [PegawaiController::class, 'daftarPegawai']);
+// API Mahasiswa UNISSULA
+Route::get(
+    '/unissula/mhs',
+    [MahasiswaController::class, 'daftarMhs']
+);
+
+
 Route::get('/', function () {
     return view('tamu.view');
 });

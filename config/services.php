@@ -31,4 +31,13 @@ return [
         ],
     ],
 
+    'ybwsa' => [
+        'base_url' => env('YBWSA_BASE_URL', 'https://apis.ybw-sa.org'),
+    ],
+
+    'unissula' => [
+        'base_url' => env('UNISSULA_BASE_URL', 'http://apis.unissula.ac.id')
+    ]
+
+
 ];
