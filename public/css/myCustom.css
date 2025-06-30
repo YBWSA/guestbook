@@ -24,3 +24,14 @@ footer,
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.ui-autocomplete {
+    z-index: 1051 !important;
+    /* lebih tinggi dari Bootstrap modal (z-index: 1050) */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+    padding: 4px;
+}

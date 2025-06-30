@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="{{ asset('css/myCustom.css') }}" />
     <link href="images/favicon.ico" rel="shortcut icon" />
 
-
-
+    <!-- jQuery UI CSS (gunakan salah satu saja) -->
+    <link rel="stylesheet" href="plugins/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/jquery/jquery-ui.css">
 </head>
 
 <body>
@@ -49,14 +50,24 @@
         </footer>
 
     </div>
-</body>
 
+    <!-- Scripts (urutan sangat penting!) -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
 
-<script src="plugins/jquery/jquery.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script src="js/mono.js"></script>
-<script src="js/custom.js"></script>
+    <!-- jQuery UI -->
+    <script src="plugins/jquery/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap Bundle -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Quill Editor -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <!-- Custom & App Scripts -->
+    <script src="js/mono.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/tamu_internal.js"></script>
 </body>
 
 </html>
