@@ -15,7 +15,8 @@
                                 placeholder="Masukan Nim dan klik cek nim">
 
                             <div class="input-group-prepend">
-                                <button class="btn btn-primary" type="button" id="cekNimBtn">Cek NIM</button>
+                                <button class="btn btn-primary rounded-right" type="button" id="cekNimBtn">Cek
+                                    NIM</button>
                             </div>
                         </div>
                     </div>
