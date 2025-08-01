@@ -1,19 +1,19 @@
-// === Reset form tamu internal saat halaman dimuat ===
+// === Reset form tamu eksternal saat halaman dimuat ===
 $(document).ready(function () {
-    const savedTanggal = $("#tanggal_internal").val(); // simpan tanggal terlebih dahulu
+    const savedTanggal = $("#tanggal_eksternal").val(); // simpan tanggal terlebih dahulu
 
     // Reset seluruh form
-    $("#formTamuInternal")[0].reset();
+    $("#formTamuEksternal")[0].reset();
 
-    // Kembalikan nilai tanggal_internal
-    $("#tanggal_internal").val(savedTanggal);
+    // Kembalikan nilai tanggal_eksternal
+    $("#tanggal_eksternal").val(savedTanggal);
 
     // Reset dropdown profesi ke default
-    $("#bertemu_dengan_internal").val(""); // reset ke "Pilih Profesi"
+    $("#bertemu_dengan_eksternal").val(""); // reset ke "Pilih Profesi"
 
     // Reset selectize pihak_dituju
-    if ($("#pihak_dituju")[0].selectize) {
-        const selectizeControl = $("#pihak_dituju")[0].selectize;
+    if ($("#pihak_dituju_eksternal")[0].selectize) {
+        const selectizeControl = $("#pihak_dituju_eksternal")[0].selectize;
         selectizeControl.clear(true);
         selectizeControl.clearOptions();
         selectizeControl.clearOptionGroups();
@@ -26,41 +26,7 @@ $(document).ready(function () {
     }
 });
 
-// === Autocomplete nama ===
-$(document).ready(function () {
-    $("#tamuInternal").on("shown.bs.modal", function () {
-        const $inputNama = $(this).find("#nama");
-        if (!$inputNama.data("ui-autocomplete")) {
-            $inputNama.autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "http://guestbook.test/ybwsa/pegawai",
-                        dataType: "json",
-                        data: {
-                            nama: request.term,
-                        },
-                        success: function (data) {
-                            response(data);
-                        },
-                        error: function (xhr) {
-                            console.error("Gagal mengambil data:", xhr);
-                        },
-                    });
-                },
-                minLength: 2,
-                select: function (event, ui) {
-                    $inputNama.val(ui.item.nama);
-                    $("#nip").val(ui.item.nip);
-                    $("#unit").val(ui.item.unit);
-                    $("#unitHomebase").val(ui.item.unitHB);
-                    return false;
-                },
-            });
-        }
-    });
-});
-
-// === Tanggal otomatis (Hari, Tanggal) ===
+// set otomatis tanggal jam hari ini
 $(document).ready(function () {
     const hariIndo = [
         "Minggu",
@@ -93,12 +59,12 @@ $(document).ready(function () {
     const tahun = now.getFullYear();
 
     const tanggalLengkap = `${hari}, ${tanggal} ${bulan} ${tahun}`;
-    $("#tanggal_internal").val(tanggalLengkap);
+    $("#tanggal_eksternal").val(tanggalLengkap);
 });
 
 // === Pilih tujuan bertemu dan load Selectize ===
 $(document).ready(function () {
-    const select = $("#pihak_dituju_internal");
+    const select = $("#pihak_dituju_eksternal");
     const selectizeInstance = select.selectize({
         create: false,
         sortField: "text",
@@ -113,7 +79,7 @@ $(document).ready(function () {
 
     const selectizeControl = selectizeInstance[0].selectize;
 
-    $("#bertemu_dengan_internal").on("change", function () {
+    $("#bertemu_dengan_eksternal").on("change", function () {
         const profesi = $(this).val();
 
         selectizeControl.clear(true);

@@ -49,13 +49,13 @@
 
                         <div class="form-group col-md-6">
                             <label>Tujuan Kunjungan</label>
-                            <select class="form-control" id="tujuan_kunjungan" name="tujuan_kunjungan" required>
+                            <select class="form-control" id="tujuan_kunjungan_internal" name="tujuan_kunjungan_internal"
+                                required>
                                 <option value="" selected disabled>Pilih Tujuan Kunjungan</option>
                                 <option value="1">Dinas</option>
                                 <option value="2">Pribadi</option>
                             </select>
                         </div>
-
                     </div>
 
 
@@ -77,7 +77,7 @@
                         <!-- Dropdown yang diubah berdasarkan profesi -->
                         <div class="form-group col-md-6">
                             <label class="mr-2 mb-0 text-white" style="width: 120px;">.</label>
-                            <select class="form-control" id="pihak_dituju" name="id_tujuan"
+                            <select class="form-control" id="pihak_dituju_internal" name="id_tujuan_internal"
                                 placeholder="Silahkan ketik tujuan kunjungan">
                                 <option disabled selected>Pilih Pihak yang Dituju</option>
                             </select>

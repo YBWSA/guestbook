@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="formTamuMhs">
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="inputNim"
@@ -52,21 +52,28 @@
                         {{-- <small class="form-text text-muted"></small> --}}
                     </div>
 
+
                     <div class="form-row">
+                        <!-- Dropdown Profesi -->
                         <div class="form-group col-md-6">
-                            <label for="bertemu_dengan_internal" class="mr-2 mb-0"
+                            <label for="bertemu_dengan_mhs" class="mr-2 mb-0"
                                 style="width: 120px; white-space: nowrap;">
                                 Bertemu Dengan
                             </label>
-                            <input type="text" class="form-control" id="bertemu_dengan_mhs"
-                                placeholder="Masukan Nama" name="bertemu_dengan_mhs">
+                            <select class="form-control" id="bertemu_dengan_mhs" name="profesi">
+                                <option value="" selected disabled>Pilih Profesi</option>
+                                <option value="pengurus">Pengurus</option>
+                                <option value="pegawai">Pegawai</option>
+                            </select>
                         </div>
 
+                        <!-- Dropdown yang diubah berdasarkan profesi -->
                         <div class="form-group col-md-6">
-                            <label for="" class="mr-2 mb-0 text-white" style="width: 120px;">
-                                .
-                            </label>
-                            <input type="text" class="form-control" placeholder="Pilih Pihan yang dituju">
+                            <label class="mr-2 mb-0 text-white" style="width: 120px;">.</label>
+                            <select class="form-control" id="pihak_dituju_mhs" name="id_tujuan_mhs"
+                                placeholder="Silahkan ketik tujuan kunjungan">
+                                <option disabled selected>Pilih Pihak yang Dituju</option>
+                            </select>
                         </div>
                     </div>
 
@@ -74,10 +81,10 @@
 
 
 
-
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keperluan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"
+                            placeholder="masukan keperluan..."></textarea>
                     </div>
 
                 </form>
