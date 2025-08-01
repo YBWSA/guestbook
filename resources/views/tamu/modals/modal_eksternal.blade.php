@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tamuEksternalTitle">Modal Title</h5>
+                <h5 class="modal-title" id="tamuEksternalTitle">Tamu Luar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -69,10 +69,10 @@
 
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect12">Example select</label>
+                        <label for="exampleFormControlSelect12">Tujuan Kunjungan</label>
                         <select class="form-control" id="exampleFormControlSelect12">
-                            <option>1</option>
-                            <option>2</option>
+                            <option>Dinas</option>
+                            <option>Pribadi</option>
                         </select>
                     </div>
 

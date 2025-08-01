@@ -1,35 +1,91 @@
-<div class="modal fade" id="tamuMhs" tabindex="-1" role="dialog" aria-labelledby="tamuMhsTitle"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tamuMhsTitle">Modal Title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-            <small class="form-text text-muted">We'll never share your email.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="check1">
-            <label class="form-check-label" for="check1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-pill">Save Changes</button>
-      </div>
+<div class="modal fade" id="tamuMhs" tabindex="-1" role="dialog" aria-labelledby="tamuMhsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tamuMhsTitle">Tamu Mahasiswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="inputNim"
+                                placeholder="Masukan Nim dan klik cek nim">
+
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" type="button" id="cekNimBtn">Cek NIM</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="namaMhs" placeholder="Masukan Nama Lengkap"
+                            name="namaMhs">
+                    </div>
+
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="fakultas">Fakultas</label>
+                            <input type="text" class="form-control" id="fakultas" placeholder="Masukan Fakultas"
+                                name="fakultas">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="jurusan">Jurusan</label>
+                            <input type="text" class="form-control" id="jurusan" placeholder="Masukan Jurusan"
+                                name="jurusan">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="tanggal_mhs">Hari/Tanggal</label>
+                        <input type="text" class="form-control" id="tanggal_mhs" placeholder="Masukan Tanggal"
+                            name="tanggal_mhs">
+                        {{-- <small class="form-text text-muted"></small> --}}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="bertemu_dengan_internal" class="mr-2 mb-0"
+                                style="width: 120px; white-space: nowrap;">
+                                Bertemu Dengan
+                            </label>
+                            <input type="text" class="form-control" id="bertemu_dengan_mhs"
+                                placeholder="Masukan Nama" name="bertemu_dengan_mhs">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="" class="mr-2 mb-0 text-white" style="width: 120px;">
+                                .
+                            </label>
+                            <input type="text" class="form-control" placeholder="Pilih Pihan yang dituju">
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Keperluan</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-pill">Save Changes</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

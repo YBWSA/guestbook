@@ -13,6 +13,34 @@
     <!-- jQuery UI CSS (gunakan salah satu saja) -->
     <link rel="stylesheet" href="plugins/jquery/jquery-ui.min.css">
     <link rel="stylesheet" href="plugins/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="plugins/sweetalert/sweetalert2.min.css">
+
+    <style>
+        body {
+            background-image:
+                linear-gradient(180deg, hsla(212, 83%, 60%, 0.8) 0%, hsla(119, 89%, 68%, 0.8) 100%),
+                url('../images/ybwsa.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        footer {
+            color: white;
+        }
+
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,13 +69,14 @@
 
         {{-- Informasi Tambahan --}}
         <div class="text-center mt-4">
-            <p class="text-muted">Belum ada tamu/kunjungan hari ini.</p>
+            <p class="text-white text-outline">Belum ada tamu/kunjungan hari ini.</p>
         </div>
 
         {{-- Footer --}}
         <footer class="text-center py-3">
-            <small class="text-muted">YBWSA © {{ date('Y') }}</small>
+            <p class="text-white text-outline">YBWSA © {{ date('Y') }}</p>
         </footer>
+
 
     </div>
 
@@ -64,10 +93,15 @@
     <!-- Quill Editor -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
+    <!-- SweetAlert2 -->
+    <script src="plugins/sweetalert/sweetalert2.min.js"></script>
+
     <!-- Custom & App Scripts -->
     <script src="js/mono.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/tamu_internal.js"></script>
+    <script src="js/tamu_mhs.js"></script>
+
 </body>
 
 </html>
