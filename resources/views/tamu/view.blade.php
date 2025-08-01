@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="plugins/jquery/jquery-ui.min.css">
     <link rel="stylesheet" href="plugins/jquery/jquery-ui.css">
     <link rel="stylesheet" href="plugins/sweetalert/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/selectize.bootstrap5.css">
+    {{-- <link rel="stylesheet" href="css/selectize.css"> --}}
+
+
 
     <style>
         body {
@@ -54,9 +58,9 @@
             <!-- Teks utama -->
             <h1 class="mt-3 mb-3">Buku Tamu Digital YBWSA</h1>
             <!-- Tanggal -->
-            <h2>Senin, 24 Juni 2025</h2>
+            <h2 id="tanggal-indonesia"></h2>
             <!-- Jam -->
-            <h3>13:45</h3>
+            <h3 id="jam-indonesia"></h3>
         </div>
 
         {{-- modal open --}}
@@ -81,6 +85,7 @@
     </div>
 
     <!-- Scripts (urutan sangat penting!) -->
+    <script src="js/waktu.js"></script>
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -97,10 +102,16 @@
     <script src="plugins/sweetalert/sweetalert2.min.js"></script>
 
     <!-- Custom & App Scripts -->
-    <script src="js/mono.js"></script>
-    <script src="js/custom.js"></script>
+    {{-- <script src="js/mono.js"></script>
+    <script src="js/custom.js"></script> --}}
     <script src="js/tamu_internal.js"></script>
     <script src="js/tamu_mhs.js"></script>
+    <script src="js/tamu_luar.js"></script>
+    <script src="js/selectize.js"></script>
+
+
+
+
 
 </body>
 

@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="tanggal_mhs">Hari/Tanggal</label>
                         <input type="text" class="form-control" id="tanggal_mhs" placeholder="Masukan Tanggal"
-                            name="tanggal_mhs">
+                            name="tanggal_mhs" readonly>
                         {{-- <small class="form-text text-muted"></small> --}}
                     </div>
 

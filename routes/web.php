@@ -17,9 +17,16 @@ Route::get(
 );
 
 
-Route::get('/', function () {
-    return view('tamu.view');
-});
+// Route::get('/', function () {
+//     return view('tamu.view');
+// });
+
+// view bukutamu awal
+Route::get('/', [tamuController::class, 'view']);
+
+// tangkap tujuan tamu
+Route::get('/tamu/get-tujuan', [tamuController::class, 'getTujuan'])->name('tamu.getTujuan');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

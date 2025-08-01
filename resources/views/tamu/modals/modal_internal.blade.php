@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="formTamuInternal">
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
                         <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Lengkap"
@@ -38,44 +38,59 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="tanggal_internal">Hari/Tanggal</label>
-                        <input type="text" class="form-control" id="tanggal_internal" placeholder="Masukan Tanggal"
-                            name="tanggal_internal">
-                        {{-- <small class="form-text text-muted"></small> --}}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="tanggal_internal">Hari/Tanggal</label>
+                            <input type="text" class="form-control" id="tanggal_internal"
+                                placeholder="Masukan Tanggal" name="tanggal_internal" readonly>
+                            {{-- <small class="form-text text-muted"></small> --}}
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Tujuan Kunjungan</label>
+                            <select class="form-control" id="tujuan_kunjungan" name="tujuan_kunjungan" required>
+                                <option value="" selected disabled>Pilih Tujuan Kunjungan</option>
+                                <option value="1">Dinas</option>
+                                <option value="2">Pribadi</option>
+                            </select>
+                        </div>
+
                     </div>
 
 
+
                     <div class="form-row">
+                        <!-- Dropdown Profesi -->
                         <div class="form-group col-md-6">
                             <label for="bertemu_dengan_internal" class="mr-2 mb-0"
                                 style="width: 120px; white-space: nowrap;">
                                 Bertemu Dengan
                             </label>
-                            <input type="text" class="form-control" id="bertemu_dengan_internal"
-                                placeholder="Masukan Nama" name="bertemu_dengan">
+                            <select class="form-control" id="bertemu_dengan_internal" name="profesi">
+                                <option value="" selected disabled>Pilih Profesi</option>
+                                <option value="pengurus">Pengurus</option>
+                                <option value="pegawai">Pegawai</option>
+                            </select>
                         </div>
 
+                        <!-- Dropdown yang diubah berdasarkan profesi -->
                         <div class="form-group col-md-6">
-                            <label for="" class="mr-2 mb-0 text-white" style="width: 120px;">
-                                .
-                            </label>
-                            <input type="text" class="form-control" id=""
-                                placeholder="Pilih Pihan yang dituju" name="">
+                            <label class="mr-2 mb-0 text-white" style="width: 120px;">.</label>
+                            <select class="form-control" id="pihak_dituju" name="id_tujuan"
+                                placeholder="Silahkan ketik tujuan kunjungan">
+                                <option disabled selected>Pilih Pihak yang Dituju</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect12">Tujuan Kunjungan</label>
-                        <select class="form-control" id="exampleFormControlSelect12">
-                            <option>Dinas</option>
-                            <option>Pribadi</option>
-                        </select>
-                    </div>
+
+
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keperluan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"
+                            placeholder="masukan keperluan..."></textarea>
                     </div>
                 </form>
             </div>

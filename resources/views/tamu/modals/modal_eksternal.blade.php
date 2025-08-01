@@ -39,9 +39,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_internal">Hari/Tanggal</label>
-                        <input type="text" class="form-control" id="tanggal_internal" placeholder="Masukan Tanggal"
-                            name="tanggal_internal">
+                        <label for="tanggal_luar">Hari/Tanggal</label>
+                        <input type="text" class="form-control" id="tanggal_luar" placeholder="Masukan Tanggal"
+                            name="tanggal_luar" readonly>
                         {{-- <small class="form-text text-muted"></small> --}}
                     </div>
 
