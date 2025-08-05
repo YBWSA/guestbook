@@ -4,6 +4,7 @@
 <head>
     <title>Buku Tamu Digital YBWSA</title>
     <meta name="theme-name" content="mono" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="css/style.css" />

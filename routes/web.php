@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\PegawaiController;
 use App\Http\Controllers\Api\MahasiswaController;
+use App\Http\Controllers\TamuInternalController;
 
 
 // API Pegawai Lingkungan YWBSA
@@ -15,6 +16,10 @@ Route::get(
     '/unissula/mhs',
     [MahasiswaController::class, 'daftarMhs']
 );
+
+
+// routes post tamu internal
+Route::post('/tamu-internal', [TamuInternalController::class, 'store'])->name('tamu-internal.store');
 
 
 // Route::get('/', function () {

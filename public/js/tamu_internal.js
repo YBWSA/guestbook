@@ -11,9 +11,9 @@ $(document).ready(function () {
     // Reset dropdown profesi ke default
     $("#bertemu_dengan_internal").val(""); // reset ke "Pilih Profesi"
 
-    // Reset selectize pihak_dituju
-    if ($("#pihak_dituju")[0].selectize) {
-        const selectizeControl = $("#pihak_dituju")[0].selectize;
+    // Reset selectize pihak_dituju_internal
+    if ($("#pihak_dituju_internal")[0].selectize) {
+        const selectizeControl = $("#pihak_dituju_internal")[0].selectize;
         selectizeControl.clear(true);
         selectizeControl.clearOptions();
         selectizeControl.clearOptionGroups();
@@ -92,8 +92,15 @@ $(document).ready(function () {
     const bulan = bulanIndo[now.getMonth()];
     const tahun = now.getFullYear();
 
+    // Format tampil (contoh: Senin, 5 Agustus 2025)
     const tanggalLengkap = `${hari}, ${tanggal} ${bulan} ${tahun}`;
-    $("#tanggal_internal").val(tanggalLengkap);
+    $("#tanggal_internal_display").val(tanggalLengkap);
+
+    // Format valid untuk backend (contoh: 2025-08-05)
+    const bulanStr = (now.getMonth() + 1).toString().padStart(2, "0");
+    const tanggalStr = tanggal.toString().padStart(2, "0");
+    const tanggalForBackend = `${tahun}-${bulanStr}-${tanggalStr}`;
+    $("#tanggal_internal").val(tanggalForBackend);
 });
 
 // === Pilih tujuan bertemu dan load Selectize ===
@@ -160,6 +167,69 @@ $(document).ready(function () {
                     unit: "",
                 });
                 selectizeControl.refreshOptions(false);
+            },
+        });
+    });
+});
+
+// data tamu post
+
+$.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+});
+
+$(document).ready(function () {
+    $("#formTamuInternal").on("submit", function (e) {
+        e.preventDefault();
+
+        let form = $(this);
+        let url = "http://guestbook.test/tamu-internal";
+
+        // Hapus error sebelumnya
+        form.find(".is-invalid").removeClass("is-invalid");
+        form.find(".invalid-feedback").remove();
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: form.serialize(),
+            success: function (res) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil",
+                    text: res.message,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+
+                form.trigger("reset");
+                $("#tamuInternal").modal("hide");
+            },
+            error: function (xhr) {
+                if (xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    $.each(errors, function (key, value) {
+                        let input = form.find(`[name="${key}"]`);
+                        input.addClass("is-invalid");
+                        input.after(
+                            `<div class="invalid-feedback">${value[0]}</div>`
+                        );
+                    });
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Validasi Gagal",
+                        text: "Silakan periksa kembali data yang diinput.",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Gagal",
+                        text: "Terjadi kesalahan pada server.",
+                    });
+                }
             },
         });
     });

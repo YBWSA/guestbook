@@ -10,6 +10,7 @@
             </div>
             <div class="modal-body">
                 <form id="formTamuInternal">
+                    @csrf
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
                         <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Lengkap"
@@ -20,7 +21,7 @@
                     <div class="form-group">
                         <label for="nip">NIP</label>
                         <input type="text" class="form-control" id="nip" placeholder="Masukan NIP"
-                            name="nip">
+                            name="nip" readonly>
                         {{-- <small class="form-text text-muted"></small> --}}
                     </div>
 
@@ -28,29 +29,32 @@
                         <div class="form-group col-md-6">
                             <label for="unit" class="mr-2 mb-0" style="width: 120px;">Unit</label>
                             <input type="text" class="form-control" id="unit" placeholder="Masukan Unit"
-                                name="unit">
+                                name="unit" readonly>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="unitHomebase" class="mr-2 mb-0" style="width: 120px;">Unit Homebase</label>
                             <input type="text" class="form-control" id="unitHomebase"
-                                placeholder="Masukan Unit Homebase" name="unit_homebase">
+                                placeholder="Masukan Unit Homebase" name="unit_homebase" readonly>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="tanggal_internal">Hari/Tanggal</label>
-                            <input type="text" class="form-control" id="tanggal_internal"
-                                placeholder="Masukan Tanggal" name="tanggal_internal" readonly>
-                            {{-- <small class="form-text text-muted"></small> --}}
+                            <label for="tanggal_internal_display">Hari/Tanggal</label>
+                            <!-- Display ke pengguna -->
+                            <input type="text" class="form-control" id="tanggal_internal_display" readonly>
+
+                            <!-- Yang akan dikirim ke server -->
+                            <input type="hidden" name="tanggal_internal" id="tanggal_internal">
                         </div>
+
 
 
                         <div class="form-group col-md-6">
                             <label>Tujuan Kunjungan</label>
-                            <select class="form-control" id="tujuan_kunjungan_internal" name="tujuan_kunjungan_internal"
-                                required>
+                            <select class="form-control" id="sifat_tujuan_kunjungan_internal"
+                                name="sifat_tujuan_kunjungan_internal">
                                 <option value="" selected disabled>Pilih Tujuan Kunjungan</option>
                                 <option value="1">Dinas</option>
                                 <option value="2">Pribadi</option>
@@ -77,7 +81,7 @@
                         <!-- Dropdown yang diubah berdasarkan profesi -->
                         <div class="form-group col-md-6">
                             <label class="mr-2 mb-0 text-white" style="width: 120px;">.</label>
-                            <select class="form-control" id="pihak_dituju_internal" name="id_tujuan_internal"
+                            <select class="form-control" id="pihak_dituju_internal" name="tujuan_internal"
                                 placeholder="Silahkan ketik tujuan kunjungan">
                                 <option disabled selected>Pilih Pihak yang Dituju</option>
                             </select>
@@ -90,14 +94,16 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keperluan</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"
-                            placeholder="masukan keperluan..."></textarea>
+                            placeholder="masukan keperluan..." name="keperluan_internal"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary btn-pill">Simpan</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary btn-pill">Simpan</button>
-            </div>
+
         </div>
     </div>
 </div>
