@@ -74,7 +74,15 @@
 
         {{-- Informasi Tambahan --}}
         <div class="text-center mt-4">
-            <p class="text-white text-outline">Belum ada tamu/kunjungan hari ini.</p>
+            @if ($totalTamuHariIni > 0)
+                <p class="text-white text-outline" style="font-size: 32px;">
+                    Terdapat {{ $totalTamuHariIni }} kunjungan hari ini.
+                </p>
+            @else
+                <p class="text-white text-outline" style="font-size: 32px;">
+                    Belum ada tamu/kunjungan hari ini.
+                </p>
+            @endif
         </div>
 
         {{-- Footer --}}
