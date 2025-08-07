@@ -73,11 +73,11 @@ $(document).ready(function () {
                         ) {
                             var data = response.hasil[0];
 
-                            console.log("DATA NIM:", data);
-                            console.log(
-                                "INPUT NAMA ADA?",
-                                $("#namaMhs").length
-                            );
+                            // console.log("DATA NIM:", data);
+                            // console.log(
+                            //     "INPUT NAMA ADA?",
+                            //     $("#namaMhs").length
+                            // );
 
                             // Isi input otomatis
                             $("#namaMhs").val(data.nama);
@@ -149,8 +149,15 @@ $(document).ready(function () {
     const bulan = bulanIndo[now.getMonth()];
     const tahun = now.getFullYear();
 
+    // Format tampil (contoh: Senin, 5 Agustus 2025)
     const tanggalLengkap = `${hari}, ${tanggal} ${bulan} ${tahun}`;
-    $("#tanggal_mhs").val(tanggalLengkap);
+    $("#tanggal_mhs_display").val(tanggalLengkap);
+
+    // Format valid untuk backend (contoh: 2025-08-05)
+    const bulanStr = (now.getMonth() + 1).toString().padStart(2, "0");
+    const tanggalStr = tanggal.toString().padStart(2, "0");
+    const tanggalForBackend = `${tahun}-${bulanStr}-${tanggalStr}`;
+    $("#tanggal_mhs").val(tanggalForBackend);
 });
 
 // === Pilih tujuan bertemu dan load Selectize ===
@@ -217,6 +224,69 @@ $(document).ready(function () {
                     unit: "",
                 });
                 selectizeControl.refreshOptions(false);
+            },
+        });
+    });
+});
+
+// data tamu post
+
+$.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+});
+
+$(document).ready(function () {
+    $("#formTamuMhs").on("submit", function (e) {
+        e.preventDefault();
+
+        let form = $(this);
+        let url = "http://guestbook.test/tamu-mhs";
+
+        // Hapus error sebelumnya
+        form.find(".is-invalid").removeClass("is-invalid");
+        form.find(".invalid-feedback").remove();
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: form.serialize(),
+            success: function (res) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil",
+                    text: res.message,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+
+                form.trigger("reset");
+                $("#tamuMhs").modal("hide");
+            },
+            error: function (xhr) {
+                if (xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    $.each(errors, function (key, value) {
+                        let input = form.find(`[name="${key}"]`);
+                        input.addClass("is-invalid");
+                        input.after(
+                            `<div class="invalid-feedback">${value[0]}</div>`
+                        );
+                    });
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Validasi Gagal",
+                        text: "Silakan periksa kembali data yang diinput.",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Gagal",
+                        text: "Terjadi kesalahan pada server.",
+                    });
+                }
             },
         });
     });

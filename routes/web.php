@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\PegawaiController;
 use App\Http\Controllers\Api\MahasiswaController;
 use App\Http\Controllers\TamuInternalController;
 use App\Http\Controllers\TamuEksternalController;
+use App\Http\Controllers\TamuMhsController;
+
 
 
 
@@ -23,6 +25,8 @@ Route::get(
 // routes post tamu internal
 Route::post('/tamu-internal', [TamuInternalController::class, 'store'])->name('tamu-internal.store');
 Route::post('/tamu-eksternal', [TamuEksternalController::class, 'store'])->name('tamu-eksternal.store');
+Route::post('/tamu-mhs', [TamuMhsController::class, 'store'])->name('tamu-mhs.store');
+
 
 
 
