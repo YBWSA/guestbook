@@ -8,14 +8,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form id="formTamuEksternal">
-
+            <form id="formTamuEksternal">
+                @csrf
+                <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="namaLengkap">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="namaLengkap"
-                                placeholder="Masukan Nama Lengkap" name="nama">
+                            <input type="text" class="form-control" id="nama_eksternal"
+                                placeholder="Masukan Nama Lengkap" name="nama_eksternal">
                             {{-- <small class="form-text text-muted"></small> --}}
                         </div>
 
@@ -37,7 +37,7 @@
                         <div class="form-group col-md-6">
                             <label for="unitHomebase" class="mr-2 mb-0" style="width: 120px;">Alamat</label>
                             <input type="text" class="form-control" id="unitHomebase" placeholder="Masukan Alamat"
-                                name="unit_homebase">
+                                name="alamat">
                         </div>
                     </div>
 
@@ -45,15 +45,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="tanggal_luar">Hari/Tanggal</label>
-                            <input type="text" class="form-control" id="tanggal_eksternal"
-                                placeholder="Masukan Tanggal" name="tanggal_eksternal" readonly>
+                            <!-- Display ke pengguna -->
+                            <input type="text" class="form-control" id="tanggal_eksternal_display" readonly>
+
+                            <input type="hidden" id="tanggal_eksternal" name="tanggal_eksternal">
                             {{-- <small class="form-text text-muted"></small> --}}
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Tujuan Kunjungan</label>
-                            <select class="form-control" id="tujuan_kunjungan_eksternal"
-                                name="tujuan_kunjungan_eksternal" required>
+                            <select class="form-control" id="sifat_tujuan_kunjungan_eksternal"
+                                name="sifat_tujuan_kunjungan_eksternal">
                                 <option value="" selected disabled>Pilih Tujuan Kunjungan</option>
                                 <option value="1">Dinas</option>
                                 <option value="2">Pribadi</option>
@@ -81,7 +83,7 @@
                         <!-- Dropdown yang diubah berdasarkan profesi -->
                         <div class="form-group col-md-6">
                             <label class="mr-2 mb-0 text-white" style="width: 120px;">.</label>
-                            <select class="form-control" id="pihak_dituju_eksternal" name="id_tujuan_eksternal"
+                            <select class="form-control" id="pihak_dituju_eksternal" name="tujuan_eksternal"
                                 placeholder="Silahkan ketik tujuan kunjungan">
                                 <option disabled selected>Pilih Pihak yang Dituju</option>
                             </select>
@@ -92,14 +94,15 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keperluan</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"
-                            placeholder="masukan keperluan..."></textarea>
+                            placeholder="masukan keperluan..." name="keperluan_eksternal"></textarea>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary btn-pill">Simpan</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary btn-pill">Simpan</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

@@ -106,8 +106,8 @@
     {{-- <script src="js/mono.js"></script>
     <script src="js/custom.js"></script> --}}
     <script src="js/tamu_internal.js"></script>
-    <script src="js/tamu_mhs.js"></script>
     <script src="js/tamu_eksternal.js"></script>
+    <script src="js/tamu_mhs.js"></script>
     <script src="js/selectize.js"></script>
 
 

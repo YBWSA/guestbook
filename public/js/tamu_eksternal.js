@@ -58,8 +58,18 @@ $(document).ready(function () {
     const bulan = bulanIndo[now.getMonth()];
     const tahun = now.getFullYear();
 
+    // Format tampil: Senin, 5 Agustus 2025
     const tanggalLengkap = `${hari}, ${tanggal} ${bulan} ${tahun}`;
-    $("#tanggal_eksternal").val(tanggalLengkap);
+    // console.log("Tanggal tampil:", tanggalLengkap); // Debug
+
+    // Tampilkan ke pengguna
+    $("#tanggal_eksternal_display").val(tanggalLengkap);
+
+    // Format untuk backend: 2025-08-05
+    const bulanStr = (now.getMonth() + 1).toString().padStart(2, "0");
+    const tanggalStr = tanggal.toString().padStart(2, "0");
+    const tanggalForBackend = `${tahun}-${bulanStr}-${tanggalStr}`;
+    $("#tanggal_eksternal").val(tanggalForBackend);
 });
 
 // === Pilih tujuan bertemu dan load Selectize ===
@@ -128,5 +138,85 @@ $(document).ready(function () {
                 selectizeControl.refreshOptions(false);
             },
         });
+    });
+});
+
+$.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+});
+
+$(document).ready(function () {
+    $("#formTamuEksternal").on("submit", function (e) {
+        e.preventDefault();
+
+        let form = $(this);
+        let url = "http://guestbook.test/tamu-eksternal";
+
+        // Hapus error sebelumnya
+        form.find(".is-invalid").removeClass("is-invalid");
+        form.find(".invalid-feedback").remove();
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: form.serialize(),
+            success: function (res) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil",
+                    text: res.message,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+
+                form.trigger("reset");
+                $("#tamuEksternal").modal("hide");
+            },
+            error: function (xhr) {
+                if (xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    $.each(errors, function (key, value) {
+                        let input = form.find(`[name="${key}"]`);
+                        input.addClass("is-invalid");
+                        input.after(
+                            `<div class="invalid-feedback">${value[0]}</div>`
+                        );
+                    });
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Validasi Gagal",
+                        text: "Silakan periksa kembali data yang diinput.",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Gagal",
+                        text: "Terjadi kesalahan pada server.",
+                    });
+                }
+            },
+        });
+    });
+});
+
+// no_hp maksimal 12 digit
+$(document).ready(function () {
+    $("#no_hp").on("input", function () {
+        // Ambil nilai saat ini
+        let val = $(this).val();
+
+        // Hapus semua karakter non-angka
+        val = val.replace(/\D/g, "");
+
+        // Potong jadi maksimal 12 digit
+        if (val.length > 12) {
+            val = val.substring(0, 12);
+        }
+
+        // Set kembali ke input
+        $(this).val(val);
     });
 });

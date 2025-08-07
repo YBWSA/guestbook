@@ -22,8 +22,8 @@ class TamuInternalController extends Controller
             'created_at' => now(),
         ]);
 
-        var_dump($request->all());
-        die();
+        // var_dump($request->all());
+        // die();
 
         return response()->json([
             'message' => 'Data berhasil disimpan!'

@@ -8,8 +8,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form id="formTamuInternal">
+            <form id="formTamuInternal">
+                <div class="modal-body">
+
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
@@ -96,13 +97,12 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 71px;"
                             placeholder="masukan keperluan..." name="keperluan_internal"></textarea>
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary btn-pill">Simpan</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary btn-pill">Simpan</button>
+                </div>
+            </form>
 
         </div>
     </div>
