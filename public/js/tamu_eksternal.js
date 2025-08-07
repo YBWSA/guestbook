@@ -173,6 +173,11 @@ $(document).ready(function () {
 
                 form.trigger("reset");
                 $("#tamuEksternal").modal("hide");
+
+                // ✅ Menjadi ini:
+                if (typeof updateCountToday === "function") {
+                    updateCountToday();
+                }
             },
             error: function (xhr) {
                 if (xhr.status === 422) {

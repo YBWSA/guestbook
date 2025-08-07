@@ -8,6 +8,7 @@ use App\Models\TamuMhs;
 use App\Models\TamuInternal;
 use App\Models\TamuEksternal;
 use Illuminate\Support\Carbon;
+use Illuminate\Http\JsonResponse;
 
 
 
@@ -55,21 +56,28 @@ class tamuController extends Controller
     public function view()
     {
         $tujuan = Tujuan::all()->groupBy('profesi');
+        // dump($tujuan);
 
-        // Hari ini
+        return view('tamu.view', compact('tujuan'));
+    }
+
+    /**total jumlah tamu hari ini */
+
+    public function getTotalTamuHariIni(): JsonResponse
+    {
         $today = Carbon::today();
-        // dump($today);
 
-        // Hitung jumlah tamu hari ini dari masing-masing model
         $countMhs = TamuMhs::whereDate('created_at', $today)->count();
         $countInternal = TamuInternal::whereDate('created_at', $today)->count();
         $countEksternal = TamuEksternal::whereDate('created_at', $today)->count();
 
-        $totalTamuHariIni = $countMhs + $countInternal + $countEksternal;
-        // dump($totalTamuHariIni);
+        $total = $countMhs + $countInternal + $countEksternal;
 
-        return view('tamu.view', compact('tujuan', 'totalTamuHariIni'));
+        return response()->json([
+            'total' => $total,
+        ]);
     }
+
 
 
     /**

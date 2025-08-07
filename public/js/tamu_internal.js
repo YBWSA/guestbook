@@ -203,9 +203,13 @@ $(document).ready(function () {
                     timer: 2000,
                     showConfirmButton: false,
                 });
-
                 form.trigger("reset");
                 $("#tamuInternal").modal("hide");
+
+                // ✅ Menjadi ini:
+                if (typeof updateCountToday === "function") {
+                    updateCountToday();
+                }
             },
             error: function (xhr) {
                 if (xhr.status === 422) {

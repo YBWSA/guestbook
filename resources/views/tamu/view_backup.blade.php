@@ -9,8 +9,6 @@
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="{{ asset('css/myCustom.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/view.css') }}" />
-
     <link href="images/favicon.ico" rel="shortcut icon" />
 
     <!-- jQuery UI CSS (gunakan salah satu saja) -->
@@ -18,22 +16,40 @@
     <link rel="stylesheet" href="plugins/jquery/jquery-ui.css">
     <link rel="stylesheet" href="plugins/sweetalert/sweetalert2.min.css">
     <link rel="stylesheet" href="css/selectize.bootstrap5.css">
+    {{-- <link rel="stylesheet" href="css/selectize.css"> --}}
 
 
+
+    <style>
+        body {
+            background-image:
+                linear-gradient(180deg, hsla(212, 83%, 60%, 0.8) 0%, hsla(119, 89%, 68%, 0.8) 100%),
+                url('../images/ybwsa.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        footer {
+            color: white;
+        }
+
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- ===== Ayat/Hadis Harian (Running Text) ===== -->
-    <div
-        style="width: 100%; background-color: rgba(0,0,0,0.6); padding: 8px 0; position: fixed; top: 0; z-index: 1000;">
-        <marquee behavior="scroll" direction="left" scrollamount="5"
-            style="color: white; font-size: 18px; font-weight: 500;" class="text-outline">
-            “Sesungguhnya Allah tidak akan mengubah keadaan suatu kaum sampai mereka mengubah keadaan yang ada
-            pada diri mereka sendiri.” (QS. Ar-Ra’d: 11)
-        </marquee>
-    </div>
-
-    <div class="wrapper d-flex flex-column justify-content-between min-vh-100" style="padding-top: 45px;">
+    <div class="wrapper d-flex flex-column justify-content-between min-vh-100">
 
         {{-- Header Info --}}
         <div class="d-flex flex-column justify-content-center align-items-center text-center mt-3">
@@ -46,8 +62,6 @@
             <h2 id="tanggal-indonesia"></h2>
             <!-- Jam -->
             <h3 id="jam-indonesia"></h3>
-
-
         </div>
 
         {{-- modal open --}}
@@ -58,34 +72,56 @@
         @include('tamu.modals.modal_eksternal')
         @include('tamu.modals.modal_mhs')
 
-
-
         {{-- Informasi Tambahan --}}
-        <div class="text-center">
-            <div class="text-white text-outline" id="count-wrapper">
-                <p id="count-today" style="font-size: 30px">Memuat jumlah kunjungan...</p>
-            </div>
+        <div class="text-center mt-4">
+            @if ($totalTamuHariIni > 0)
+                <p class="text-white text-outline" style="font-size: 32px;">
+                    Terdapat {{ $totalTamuHariIni }} kunjungan hari ini.
+                </p>
+            @else
+                <p class="text-white text-outline" style="font-size: 32px;">
+                    Belum ada tamu/kunjungan hari ini.
+                </p>
+            @endif
         </div>
-
 
         {{-- Footer --}}
         <footer class="text-center py-3">
             <p class="text-white text-outline">YBWSA © {{ date('Y') }}</p>
         </footer>
+
+
     </div>
 
     <!-- Scripts (urutan sangat penting!) -->
     <script src="js/waktu.js"></script>
+    <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- jQuery UI -->
     <script src="plugins/jquery/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap Bundle -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Quill Editor -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <!-- SweetAlert2 -->
     <script src="plugins/sweetalert/sweetalert2.min.js"></script>
-    <script src="js/view.js"></script>
+
+    <!-- Custom & App Scripts -->
+    {{-- <script src="js/mono.js"></script>
+    <script src="js/custom.js"></script> --}}
     <script src="js/tamu_internal.js"></script>
     <script src="js/tamu_eksternal.js"></script>
     <script src="js/tamu_mhs.js"></script>
     <script src="js/selectize.js"></script>
+
+
+
+
+
 </body>
 
 </html>
