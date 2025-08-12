@@ -23,15 +23,29 @@
 </head>
 
 <body>
-    <!-- ===== Ayat/Hadis Harian (Running Text) ===== -->
+    <!-- ===== Ayat/Hadis Harian + Jadwal Sholat (1 baris dengan separator) ===== -->
     <div
         style="width: 100%; background-color: rgba(0,0,0,0.6); padding: 8px 0; position: fixed; top: 0; z-index: 1000;">
-        <marquee behavior="scroll" direction="left" scrollamount="5"
-            style="color: white; font-size: 18px; font-weight: 500;" class="text-outline">
-            “Sesungguhnya Allah tidak akan mengubah keadaan suatu kaum sampai mereka mengubah keadaan yang ada
-            pada diri mereka sendiri.” (QS. Ar-Ra’d: 11)
-        </marquee>
+        <div style="display: flex; align-items: center; gap: 10px; overflow: hidden;">
+            <!-- Jadwal Sholat Dummy -->
+            <div id="jadwal-sholat" style="white-space: nowrap; color: white; font-size: 16px; font-weight: 500;"
+                class="text-outline px-3">
+                🕋 Memuat jadwal sholat...
+            </div>
+
+            <!-- Garis pemisah vertikal -->
+            <div style="height: 24px; width: 2px; background-color: black;"></div>
+
+            <!--  Hadis/Ayat -->
+            <marquee id="marquee-ayat" behavior="scroll" direction="left" scrollamount="5"
+                style="color: white; font-size: 18px; font-weight: 500; transition: opacity 0.5s ease;"
+                class="text-outline flex-grow-1">
+                Memuat konten...
+            </marquee>
+        </div>
     </div>
+
+
 
     <div class="wrapper d-flex flex-column justify-content-between min-vh-100" style="padding-top: 45px;">
 
