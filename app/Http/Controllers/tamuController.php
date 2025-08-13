@@ -91,9 +91,25 @@ class tamuController extends Controller
         return view('admin.index');
     }
 
-
-    function index_latihan()
+    // tamu internal
+    public function tamuInternal()
     {
-        return '<h1>Ini halaman buku tamu admin setelah login</h1>';
+        return view('admin.internal');
     }
+
+    public function tamuEksternal()
+    {
+        return view('admin.internal');
+    }
+
+    public function tamuMhs()
+    {
+        return view('admin.internal');
+    }
+
+
+    // function index_latihan()
+    // {
+    //     return '<h1>Ini halaman buku tamu admin setelah login</h1>';
+    // }
 }

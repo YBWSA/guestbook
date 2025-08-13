@@ -8,114 +8,162 @@
 -->
 
 <html lang="en" dir="ltr">
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Mono - Responsive Admin & Dashboard Template</title>
-    
-  <!-- theme meta -->
-  <meta name="theme-name" content="mono" />
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
-  <link href="plugins/material/css/materialdesignicons.min.css" rel="stylesheet" />
-  <link href="plugins/simplebar/simplebar.css" rel="stylesheet" />
+    <title>Buku Tamu YBWSA</title>
 
-  <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
-  <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
-  <link href="plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-  <link href="plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
-  <!-- MONO CSS -->
-  <link id="main-css-href" rel="stylesheet" href="css/style.css" />
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon" />
+    <!-- theme meta -->
+    <meta name="theme-name" content="mono" />
 
-  <!--
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+    <link href="plugins/material/css/materialdesignicons.min.css" rel="stylesheet" />
+
+    <link href="plugins/material/css/materialdesignicons.css" rel="stylesheet" />
+    <link href="plugins/simplebar/simplebar.css" rel="stylesheet" />
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+    <link href="plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
+    <!-- MONO CSS -->
+    <link id="main-css-href" rel="stylesheet" href="css/style.css" />
+    <!-- FAVICON -->
+
+    <link href="images/favicon.ico" rel="shortcut icon" />
+
+
+    <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
   -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script src="plugins/nprogress/nprogress.js"></script>
+    <script src="plugins/nprogress/nprogress.js"></script>
 </head>
 
 
-  <body class="navbar-fixed sidebar-fixed" id="body">
+<body class="navbar-fixed sidebar-fixed" id="body">
     <script>
-      NProgress.configure({ showSpinner: false });
-      NProgress.start();
+        NProgress.configure({
+            showSpinner: false
+        });
+        NProgress.start();
     </script>
+
+    @if (session('login_success'))
+        <script>
+            window.loginSuccess = @json(session('login_success'));
+        </script>
+    @endif
+
     <div id="toaster"></div>
-    
+
 
     <!-- ====================================
     ——— WRAPPER
     ===================================== -->
     <div class="wrapper">
-      {{-- Sidebar --}}
-      @include('layoutes.partials.sidebar')
+        {{-- Sidebar --}}
+        @include('layoutes.partials.sidebar')
 
-      <div class="page-wrapper">
-        
-        {{-- Header Navbar --}}
-        @include('layoutes.partials.navbar')
-    
-        {{-- Content --}}
-        <div class="content-wrapper">
-          <main>
-            @yield('content')
-          </main>
-        </div>
-    
-        {{-- Footer --}}
-        @include('layoutes.partials.footer')
-    
-      </div> {{-- page-wrapper --}}
-      
+        <div class="page-wrapper">
+
+            {{-- Header Navbar --}}
+            @include('layoutes.partials.navbar')
+
+            {{-- Content --}}
+            <div class="content-wrapper">
+                <main>
+                    @yield('content')
+                </main>
+            </div>
+
+            {{-- Footer --}}
+            @include('layoutes.partials.footer')
+
+        </div> {{-- page-wrapper --}}
+
     </div> {{-- wrapper --}}
-    
-    
-                   
-                    <script src="plugins/jquery/jquery.min.js"></script>
-                    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                    <script src="plugins/simplebar/simplebar.min.js"></script>
-                    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
-                    <script src="plugins/apexcharts/apexcharts.js"></script>
-                    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
-                    <script src="plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-                    <script src="plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
-                    <script src="plugins/jvectormap/jquery-jvectormap-us-aea.js"></script>
-                    <script src="plugins/daterangepicker/moment.min.js"></script>
-                    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-                    <script>
-                      jQuery(document).ready(function() {
-                        jQuery('input[name="dateRange"]').daterangepicker({
-                        autoUpdateInput: false,
-                        singleDatePicker: true,
-                        locale: {
-                          cancelLabel: 'Clear'
-                        }
-                      });
-                        jQuery('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
-                          jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
-                        });
-                        jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
-                          jQuery(this).val('');
-                        });
-                      });
-                    </script>
-                    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-                    <script src="plugins/toaster/toastr.min.js"></script>
-                    <script src="js/mono.js"></script>
-                    <script src="js/chart.js"></script>
-                    <script src="js/map.js"></script>
-                    <script src="js/custom.js"></script>
-  </body>
+
+
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/simplebar/simplebar.min.js"></script>
+    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+    <script src="plugins/apexcharts/apexcharts.js"></script>
+    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-us-aea.js"></script>
+    <script src="plugins/daterangepicker/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('input[name="dateRange"]').daterangepicker({
+                autoUpdateInput: false,
+                singleDatePicker: true,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+            jQuery('input[name="dateRange"]').on('apply.daterangepicker', function(ev, picker) {
+                jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
+            });
+            jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function(ev, picker) {
+                jQuery(this).val('');
+            });
+        });
+
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const allLis = document.querySelectorAll('#sidebar-menu li');
+
+        //     // Ambil id atau index dari li yang aktif terakhir dari localStorage
+        //     let lastActiveIndex = localStorage.getItem('sidebarActiveIndex');
+
+        //     // Kalau ada data di localStorage → set aktif di li tersebut
+        //     if (lastActiveIndex !== null && allLis[lastActiveIndex]) {
+        //         allLis[lastActiveIndex].classList.add('active');
+        //     } else {
+        //         // Kalau belum ada, default aktif di Dashboard
+        //         const dashboardLi = document.querySelector('#sidebar-menu > li:first-child');
+        //         if (dashboardLi) dashboardLi.classList.add('active');
+        //     }
+
+        //     // Event klik untuk semua li
+        //     allLis.forEach((li, index) => {
+        //         li.addEventListener('click', function(e) {
+        //             e.stopPropagation();
+
+        //             // Hapus semua active
+        //             allLis.forEach(l => l.classList.remove('active'));
+
+        //             // Tambah active di yang diklik
+        //             this.classList.add('active');
+
+        //             // Simpan index li aktif ke localStorage
+        //             localStorage.setItem('sidebarActiveIndex', index);
+        //         });
+        //     });
+        // });
+    </script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="plugins/toaster/toastr.min.js"></script>
+    <script src="js/mono.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
 </html>

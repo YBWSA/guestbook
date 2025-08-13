@@ -59,13 +59,18 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/cek1', function () {
-    return '<h1>Welcome to buku tamu admin</h1>';
-})->middleware(['auth', 'verified']);
+// Route::get('/cek1', function () {
+//     return '<h1>Welcome to buku tamu admin</h1>';
+// })->middleware(['auth', 'verified']);
 
 
-Route::get('/cek2', [tamuController::class, 'index_latihan'])->middleware(['auth', 'verified']);
+// Route::get('/cek2', [tamuController::class, 'index_latihan'])->middleware(['auth', 'verified']);
 
-Route::get('/admin', [tamuController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/admin', [tamuController::class, 'index'])->name('admin');
+    Route::get('/internal', [tamuController::class, 'tamuInternal'])->name('internal');
+    Route::get('/eksternal', [tamuController::class, 'tamuEksternal'])->name('eksternal');
+    Route::get('/mhs', [tamuController::class, 'tamuMhs'])->name('mahasiswa');
+});
 
 require __DIR__ . '/auth.php';

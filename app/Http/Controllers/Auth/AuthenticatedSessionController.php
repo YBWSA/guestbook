@@ -28,6 +28,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Simpan flash session untuk toastr
+        session()->flash('login_success', [
+            'username' => $request->user()->name
+        ]);
+
         // return redirect()->intended(route('dashboard', absolute: false));
         return redirect()->intended(route('admin', absolute: false));
     }
@@ -43,6 +48,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+
+        // return redirect('/');
+        // return redirect()->route('login');
+        return redirect()->route('login')->with('status', 'Anda telah berhasil logout.');
     }
 }
