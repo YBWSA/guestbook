@@ -20,4 +20,9 @@ class TamuMhs extends Model
     ];
 
     public $timestamps = false;
+
+    public function tujuanRelasi()
+    {
+        return $this->belongsTo(Tujuan::class, 'tujuan');
+    }
 }

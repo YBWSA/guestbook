@@ -11,17 +11,26 @@
                     <th scope="col">Nama</th>
                     <th scope="col">NIP</th>
                     <th scope="col">Unit</th>
+                    <th scope="col">Unit HomeBase</th>
+                    <th scope="col">Hari, Tanggal</th>
+                    <th scope="col">Sifat Kunjungan</th>
                     <th scope="col">Tujuan</th>
+                    <th scope="col">Keperluan</th>
+
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data as $index => $item)
                     <tr>
-                        <td scope="row">{{ $index + 1 }}</td>
+                        <td scope="row">{{ $data->firstItem() + $index }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->nip }}</td>
                         <td>{{ $item->unit }}</td>
-                        <td>{{ $item->tujuan }}</td>
+                        <td>{{ $item->unitHb }}</td>
+                        <td>{{ $item->hari_tgl }}</td>
+                        <td>{{ $item->sifat_kunjungan == 1 ? 'Dinas' : 'Pribadi' }}</td>
+                        <td>{{ $item->tujuanRelasi?->nama ?? '-' }}</td>
+                        <td>{{ $item->keperluan }}</td>
                     </tr>
                 @endforeach
             </tbody>

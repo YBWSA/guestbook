@@ -96,7 +96,7 @@ class tamuController extends Controller
     // tamu internal
     public function tamuInternal()
     {
-        $data = TamuInternal::latest()->paginate(10);
+        $data = TamuInternal::with('tujuanRelasi')->latest()->paginate(10);
         // dd($data);
 
         return view('admin.internal', ['data' => $data]);
@@ -104,12 +104,17 @@ class tamuController extends Controller
 
     public function tamuEksternal()
     {
-        return view('admin.eksternal');
+        $data = TamuEksternal::with('tujuanRelasi')->latest()->paginate(10);
+
+        return view('admin.eksternal', ['data' => $data]);
     }
+
 
     public function tamuMhs()
     {
-        return view('admin.mahasiswa');
+        $data = TamuMhs::with('tujuanRelasi')->latest()->paginate(10);
+
+        return view('admin.mahasiswa', ['data' => $data]);
     }
 
 
