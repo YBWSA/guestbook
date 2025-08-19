@@ -88,23 +88,28 @@ class tamuController extends Controller
     // This method is used to show the admin dashboard after login
     public function index()
     {
+
+
         return view('admin.index');
     }
 
     // tamu internal
     public function tamuInternal()
     {
-        return view('admin.internal');
+        $data = TamuInternal::latest()->paginate(10);
+        // dd($data);
+
+        return view('admin.internal', ['data' => $data]);
     }
 
     public function tamuEksternal()
     {
-        return view('admin.internal');
+        return view('admin.eksternal');
     }
 
     public function tamuMhs()
     {
-        return view('admin.internal');
+        return view('admin.mahasiswa');
     }
 
 

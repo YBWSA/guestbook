@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
                         <input type="text" class="form-control" id="namaMhs" placeholder="Masukan Nama Lengkap"
-                            name="namaMhs" readonly>
+                            name="namaMhs">
                     </div>
 
 
@@ -35,13 +35,13 @@
                         <div class="form-group col-md-6">
                             <label for="fakultas">Fakultas</label>
                             <input type="text" class="form-control" id="fakultas" placeholder="Masukan Fakultas"
-                                name="fakultas" readonly>
+                                name="fakultas">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="jurusan">Jurusan</label>
                             <input type="text" class="form-control" id="jurusan" placeholder="Masukan Jurusan"
-                                name="jurusan" readonly>
+                                name="jurusan">
                         </div>
 
                     </div>
