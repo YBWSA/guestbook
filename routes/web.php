@@ -68,6 +68,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', [tamuController::class, 'index'])->name('admin');
+    Route::get('/statistik', [tamuController::class, 'statistik'])->name('admin.statistik');
+    Route::get('/export-excel', [tamuController::class, 'exportExcel'])->name('admin.exportExcel');
     Route::get('/internal', [tamuController::class, 'tamuInternal'])->name('internal');
     Route::get('/eksternal', [tamuController::class, 'tamuEksternal'])->name('eksternal');
     Route::get('/mhs', [tamuController::class, 'tamuMhs'])->name('mahasiswa');

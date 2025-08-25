@@ -33,6 +33,10 @@
     <link href="plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
+
+    {{-- apexcharts --}}
+    <link href="plugins/apexcharts/apexcharts.css" rel="stylesheet" />
+
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="css/style.css" />
     <!-- FAVICON -->
@@ -101,7 +105,7 @@
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="plugins/simplebar/simplebar.min.js"></script>
     <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
-    <script src="plugins/apexcharts/apexcharts.js"></script>
+    <script src="plugins/apexcharts/apexcharts.min.js"></script>
     <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
     <script src="plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
@@ -164,6 +168,7 @@
     <script src="js/chart.js"></script>
     <script src="js/map.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
