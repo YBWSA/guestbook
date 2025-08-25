@@ -128,39 +128,6 @@
                 jQuery(this).val('');
             });
         });
-
-
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const allLis = document.querySelectorAll('#sidebar-menu li');
-
-        //     // Ambil id atau index dari li yang aktif terakhir dari localStorage
-        //     let lastActiveIndex = localStorage.getItem('sidebarActiveIndex');
-
-        //     // Kalau ada data di localStorage → set aktif di li tersebut
-        //     if (lastActiveIndex !== null && allLis[lastActiveIndex]) {
-        //         allLis[lastActiveIndex].classList.add('active');
-        //     } else {
-        //         // Kalau belum ada, default aktif di Dashboard
-        //         const dashboardLi = document.querySelector('#sidebar-menu > li:first-child');
-        //         if (dashboardLi) dashboardLi.classList.add('active');
-        //     }
-
-        //     // Event klik untuk semua li
-        //     allLis.forEach((li, index) => {
-        //         li.addEventListener('click', function(e) {
-        //             e.stopPropagation();
-
-        //             // Hapus semua active
-        //             allLis.forEach(l => l.classList.remove('active'));
-
-        //             // Tambah active di yang diklik
-        //             this.classList.add('active');
-
-        //             // Simpan index li aktif ke localStorage
-        //             localStorage.setItem('sidebarActiveIndex', index);
-        //         });
-        //     });
-        // });
     </script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="plugins/toaster/toastr.min.js"></script>
