@@ -15,8 +15,7 @@
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center ">
         {{-- Tamu Internal --}}
-
-        <div class="card card-default card-guest">
+        <div class="card mb-4 card-default card-guest">
             <div class="card-header card-header-border-bottom d-flex flex-column align-items-center">
                 <!-- SVG -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -26,10 +25,13 @@
                     <path
                         d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" />
                 </svg>
+            </div>
+            <div class="card-body text-center">
+                <h5>Tamu Internal</h5>
+
 
             </div>
-
-            <div class="card-body text-center">
+            <div class="card-footer text-center">
                 <button type="button" class="btn btn-info btn-pill" data-toggle="modal" data-target="#tamuInternal">
                     Isi Data
                 </button>
@@ -38,10 +40,9 @@
 
 
 
-
         {{-- Tamu Eksternal --}}
 
-        <div class="card card-default  card-guest">
+        <div class="card mb-4 card-default card-guest">
             <div class="card-header card-header-border-bottom d-flex flex-column align-items-center">
                 <!-- SVG -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -52,18 +53,22 @@
                         d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" />
                 </svg>
             </div>
-
             <div class="card-body text-center">
+                <h5>Tamu Luar</h5>
+
+
+            </div>
+            <div class="card-footer text-center">
                 <button type="button" class="btn btn-info btn-pill" data-toggle="modal" data-target="#tamuEksternal">
                     Isi Data
                 </button>
             </div>
         </div>
 
-
         {{-- Tamu Mahasiswa --}}
 
-        <div class="card card-default  card-guest">
+
+        <div class="card mb-4 card-default card-guest">
             <div class="card-header card-header-border-bottom d-flex flex-column align-items-center">
                 <!-- SVG -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -75,12 +80,15 @@
                 </svg>
             </div>
             <div class="card-body text-center">
+                <h5>Tamu Mahasiswa</h5>
+
+
+            </div>
+            <div class="card-footer text-center">
                 <button type="button" class="btn btn-info btn-pill" data-toggle="modal" data-target="#tamuMhs">
                     Isi Data
                 </button>
             </div>
         </div>
-
-
     </div>
 </div>
